@@ -17,23 +17,16 @@
         <li>
             <div id="listItem" class="listItem">
                 <div id="itemName">Item</div>
-                <span className="itemPrice">
+                <span id="header">
                     Price
                 </span>
             </div>
         </li>
-        <li>
-            <div id="listItem" class="listItem">
-                <div id="itemName">Milk</div>
-                <span id="itemPrice" className="itemPrice">
-                    5.00
-                    <span onclick="closeTodo(this)">&#215;</span>
-                </span>
-            </div>
-        </li>
     </ul>
-    <span>Total Cost: </span>
-    <span id="totalCost">5.00</span>
+    <div class='cost'>
+        <span>Total Cost: </span>
+        <span id="totalCost">0.00</span>
+    </div>
 </body>
 <script src="{{ url_for('static', filename='scripts.js') }}"></script>
 

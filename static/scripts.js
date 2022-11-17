@@ -6,7 +6,7 @@ spending_form.addEventListener('submit', handleForm);
 
 function closeTodo(close) {
     var span = close.parentElement;
-    span.parentElement.remove();
+    span.parentElement.parentElement.remove();
     totalCost()
 }
 
@@ -35,15 +35,17 @@ function addItem() {
     new_item_list.appendChild(new_item_div);
     new_item_list.appendChild(new_price);
 
+    var list_item = document.createElement('li');
+    list_item.appendChild(new_item_list)
 
     close_icon.onclick = function () {
         var span = this.parentElement;
-        span.parentElement.remove();
+        span.parentElement.parentElement.remove();
         totalCost()
     };
 
     var price_list = document.getElementById('spendingList');
-    price_list.appendChild(document.createElement('li').appendChild(new_item_list));
+    price_list.appendChild(list_item);
     totalCost()
 }
 
@@ -53,6 +55,8 @@ function totalCost() {
     var allItems = document.getElementsByClassName('itemPrice');
     var sum = 0
     for (var i = 0; i < allItems.length; i++) {
+        console.log(i)
+        console.log(allItems[i].childNodes[0].textContent)
         sum = sum + Number(allItems[i].childNodes[0].textContent);
     }
     var totalCost = document.getElementById('totalCost');
